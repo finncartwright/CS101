@@ -24,7 +24,9 @@ class TaxPayer:
 
     def income_tax_calculation(self):
         total_income_tax = 0
-        if self.income > 10000 and self.income <= 25000:
+        if self.income <= 10000:
+            total_income_tax = 0
+        elif self.income > 10000 and self.income <= 25000:
             total_income_tax += TaxPayer.lower_income_tax(self) 
         elif self.income > 25000 and self.income <= 50000:
             total_income_tax += TaxPayer.lower_income_tax(self) + TaxPayer.middle_income_tax(self)
@@ -65,3 +67,4 @@ capital_gains = input('Please enter the amount of money recieved from capital ga
 current_taxpayer = TaxPayer(name, age, address, income, capital_gains)
 
 print(current_taxpayer.total_tax_calculation())
+
